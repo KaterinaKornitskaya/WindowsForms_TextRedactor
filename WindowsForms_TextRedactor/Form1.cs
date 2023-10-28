@@ -32,8 +32,18 @@ namespace WindowsForms_TextRedactor
         // обработчик пункта меню Файл-Сохранить
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // вызов метода Сохранить файл
-            connector.Save(textBox1.Text);
+            try
+            {
+                // вызов метода Сохранить файл
+                connector.Save(textBox1.Text);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Для верной работы кнопки 'Сохранить' " +
+                    "нужно ранее открыть существующий файл. " +
+                    "Либо воспользуйтесь кнопкой 'Сохранить как'");
+            }
+            
         }
 
         // обработчик пункта меню Сохранить как
@@ -70,52 +80,19 @@ namespace WindowsForms_TextRedactor
             // вызов встроенной ф-ии Paste()
             textBox1.Paste();
         }
-        
+
         // далее обработчики кнопок контекстного меню
         // Копировать/Вырезать/Вставить, дублируют главное меню
-        private void copyContextToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            textBox1.Copy();
-        }
+        // - существующие события подтянуты на форме для свойства Click
+        // каждого пункта контекстного меню
 
-        private void cutContextToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            textBox1.Cut();
-        }
 
-        private void pasteContextToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            textBox1.Paste();
-        }
-
-        // далее обработчики кнопок Панелт инструментов: Открыть/Сохранить/
+        // далее обработчики кнопок Панели инструментов: Открыть/Сохранить/
         // Копировать/Вырезать/Вставить, дублируют главное меню
-        private void toolStripButtonOpen_Click(object sender, EventArgs e)
-        {
-            textBox1.Text = connector.Open();
-        }
+        // - существующие события подтянуты на форме для свойства Click
+        // каждой кнопки панели инструментов
 
-        private void toolStripButtonSave_Click(object sender, EventArgs e)
-        {
-            connector.Save(textBox1.Text);
-        }
 
-        private void toolStripButtonCopy_Click(object sender, EventArgs e)
-        {
-            textBox1.Copy();
-        }
-
-        private void toolStripButtonCut_Click(object sender, EventArgs e)
-        {
-            textBox1.Cut();
-        }
-
-        private void toolStripButtonPaste_Click(object sender, EventArgs e)
-        {
-            textBox1.Paste();
-        }
-
-       
         // обрабочик выбранного индекса в комбоБокс Выбрать цвет фона
         private void toolStripComboBox_selectColor_SelectedIndexChanged(object sender, EventArgs e)
         {

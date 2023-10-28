@@ -44,6 +44,7 @@
             this.backgroundColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripComboBox_selectColor = new System.Windows.Forms.ToolStripComboBox();
             this.fontFamilyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripComboBox_fontFamily = new System.Windows.Forms.ToolStripComboBox();
             this.выделитьВсеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сохранитьКакToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -59,7 +60,6 @@
             this.toolStripButtonCopy = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonCut = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonPaste = new System.Windows.Forms.ToolStripButton();
-            this.toolStripComboBox_fontFamily = new System.Windows.Forms.ToolStripComboBox();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -148,7 +148,7 @@
             this.fontColorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripComboBox_selectFontColor});
             this.fontColorToolStripMenuItem.Name = "fontColorToolStripMenuItem";
-            this.fontColorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.fontColorToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.fontColorToolStripMenuItem.Text = "Цвет шрифта";
             // 
             // toolStripComboBox_selectFontColor
@@ -171,7 +171,7 @@
             this.backgroundColorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripComboBox_selectColor});
             this.backgroundColorToolStripMenuItem.Name = "backgroundColorToolStripMenuItem";
-            this.backgroundColorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.backgroundColorToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.backgroundColorToolStripMenuItem.Text = "Цвет фона";
             // 
             // toolStripComboBox_selectColor
@@ -194,8 +194,19 @@
             this.fontFamilyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripComboBox_fontFamily});
             this.fontFamilyToolStripMenuItem.Name = "fontFamilyToolStripMenuItem";
-            this.fontFamilyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.fontFamilyToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.fontFamilyToolStripMenuItem.Text = "Шрифт";
+            // 
+            // toolStripComboBox_fontFamily
+            // 
+            this.toolStripComboBox_fontFamily.Items.AddRange(new object[] {
+            "Times New Roman",
+            "Arial",
+            "Verdana"});
+            this.toolStripComboBox_fontFamily.Name = "toolStripComboBox_fontFamily";
+            this.toolStripComboBox_fontFamily.Size = new System.Drawing.Size(121, 23);
+            this.toolStripComboBox_fontFamily.Text = "Выбрать";
+            this.toolStripComboBox_fontFamily.SelectedIndexChanged += new System.EventHandler(this.toolStripComboBox_fontFamily_SelectedIndexChanged);
             // 
             // выделитьВсеToolStripMenuItem
             // 
@@ -235,21 +246,21 @@
             this.копироватьToolStripMenuItem1.Name = "копироватьToolStripMenuItem1";
             this.копироватьToolStripMenuItem1.Size = new System.Drawing.Size(139, 22);
             this.копироватьToolStripMenuItem1.Text = "Копировать";
-            this.копироватьToolStripMenuItem1.Click += new System.EventHandler(this.copyContextToolStripMenuItem1_Click);
+            this.копироватьToolStripMenuItem1.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
             // 
             // вырезатьToolStripMenuItem1
             // 
             this.вырезатьToolStripMenuItem1.Name = "вырезатьToolStripMenuItem1";
             this.вырезатьToolStripMenuItem1.Size = new System.Drawing.Size(139, 22);
             this.вырезатьToolStripMenuItem1.Text = "Вырезать";
-            this.вырезатьToolStripMenuItem1.Click += new System.EventHandler(this.cutContextToolStripMenuItem1_Click);
+            this.вырезатьToolStripMenuItem1.Click += new System.EventHandler(this.cutToolStripMenuItem_Click);
             // 
             // вставитьToolStripMenuItem1
             // 
             this.вставитьToolStripMenuItem1.Name = "вставитьToolStripMenuItem1";
             this.вставитьToolStripMenuItem1.Size = new System.Drawing.Size(139, 22);
             this.вставитьToolStripMenuItem1.Text = "Вставить";
-            this.вставитьToolStripMenuItem1.Click += new System.EventHandler(this.pasteContextToolStripMenuItem1_Click);
+            this.вставитьToolStripMenuItem1.Click += new System.EventHandler(this.pasteToolStripMenuItem_Click);
             // 
             // toolStrip1
             // 
@@ -273,7 +284,7 @@
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton1.Text = "Открыть";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButtonOpen_Click);
+            this.toolStripButton1.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // toolStripButton2
             // 
@@ -283,7 +294,7 @@
             this.toolStripButton2.Name = "toolStripButton2";
             this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton2.Text = "Сохранить";
-            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButtonSave_Click);
+            this.toolStripButton2.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // toolStripButtonCopy
             // 
@@ -293,7 +304,7 @@
             this.toolStripButtonCopy.Name = "toolStripButtonCopy";
             this.toolStripButtonCopy.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonCopy.Text = "Копировать";
-            this.toolStripButtonCopy.Click += new System.EventHandler(this.toolStripButtonCopy_Click);
+            this.toolStripButtonCopy.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
             // 
             // toolStripButtonCut
             // 
@@ -303,7 +314,7 @@
             this.toolStripButtonCut.Name = "toolStripButtonCut";
             this.toolStripButtonCut.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonCut.Text = "Вырезать";
-            this.toolStripButtonCut.Click += new System.EventHandler(this.toolStripButtonCut_Click);
+            this.toolStripButtonCut.Click += new System.EventHandler(this.cutToolStripMenuItem_Click);
             // 
             // toolStripButtonPaste
             // 
@@ -313,18 +324,7 @@
             this.toolStripButtonPaste.Name = "toolStripButtonPaste";
             this.toolStripButtonPaste.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonPaste.Text = "Вставить";
-            this.toolStripButtonPaste.Click += new System.EventHandler(this.toolStripButtonPaste_Click);
-            // 
-            // toolStripComboBox_fontFamily
-            // 
-            this.toolStripComboBox_fontFamily.Items.AddRange(new object[] {
-            "Times New Roman",
-            "Arial",
-            "Verdana"});
-            this.toolStripComboBox_fontFamily.Name = "toolStripComboBox_fontFamily";
-            this.toolStripComboBox_fontFamily.Size = new System.Drawing.Size(121, 23);
-            this.toolStripComboBox_fontFamily.Text = "Выбрать";
-            this.toolStripComboBox_fontFamily.SelectedIndexChanged += new System.EventHandler(this.toolStripComboBox_fontFamily_SelectedIndexChanged);
+            this.toolStripButtonPaste.Click += new System.EventHandler(this.pasteToolStripMenuItem_Click);
             // 
             // Form1
             // 
